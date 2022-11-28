@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44402316, g: 0.49316406, b: 0.57223445, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657856, g: 0.49641138, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -320,6 +320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -2108,6 +2109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db81f1eaba878344c89347c100d971c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadedTexture: {fileID: 2800000, guid: 64dca3ea411b2604f876ed4234c3a68f, type: 3}
 --- !u!114 &1857660889
 MonoBehaviour:
   m_ObjectHideFlags: 0

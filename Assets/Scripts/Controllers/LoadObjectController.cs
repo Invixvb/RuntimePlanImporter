@@ -3,13 +3,12 @@ using Configs;
 using UnityEngine;
 using TriLibCore;
 using TriLibCore.Extensions;
-using UnityEngine.SceneManagement;
 
 namespace Controllers
 {
     public class LoadObjectController : MonoBehaviour
     {
-        private const string StartingPath = @"C:\Users\levis\Documents\il76.obj";
+        private const string StartingPath = "Assets/Resources/AssetsToLoad/building_04.obj";
 
         #region Singleton pattern
         private static LoadObjectController _instance;
@@ -30,10 +29,8 @@ namespace Controllers
         /// </summary>
         private void Start()
         {
-#if UNITY_EDITOR
             if (!Config.ConfigGo.LoadedGo)
                 StartCoroutine(LoadObjectFromXam(StartingPath));
-#endif
         }
         
         /// <summary>

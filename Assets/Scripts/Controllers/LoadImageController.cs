@@ -1,16 +1,13 @@
 using System.Collections;
-using System.Threading.Tasks;
 using Configs;
 using UnityEngine;
-using UnityEngine.Networking;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Controllers
 {
     public class LoadImageController : MonoBehaviour
     {
-        private const string StartingPath = @"C:\Users\levis\Documents\c4784584-bb57-428d-8019-a258c936fbdb_copy.jpg";
+        public Texture2D loadedTexture;
 
         #region Singleton pattern
         private static LoadImageController _instance;
@@ -31,10 +28,8 @@ namespace Controllers
         /// </summary>
         private void Start()
         {
-#if UNITY_EDITOR
             if (!Config.ConfigGo.LoadedImg)
-                StartCoroutine(LoadImageFromXam(StartingPath));
-#endif
+                StartCoroutine(LoadImageFromXam());
         }
         
         /// <summary>
@@ -42,20 +37,9 @@ namespace Controllers
         /// </summary>
         /// <param name="imagePath"></param>
         /// <returns></returns>
-        public IEnumerator LoadImageFromXam(string imagePath)
+        public IEnumerator LoadImageFromXam()
         {
-            Config.ConfigGo.PublicImagePath = imagePath;
-            
-            var unityWebRequest = UnityWebRequestTexture.GetTexture("file://"+imagePath);
-            unityWebRequest.SendWebRequest();
-            
-            while (!unityWebRequest.isDone)
-            {
-                Task.Delay(50).Wait();
-                yield return null;
-            }
-
-            var texture = DownloadHandlerTexture.GetContent(unityWebRequest);
+            var texture = loadedTexture;
 
             Config.ConfigGo.LoadedImg = new GameObject("LoadedImage");
             
@@ -67,6 +51,8 @@ namespace Controllers
             Config.ConfigGo.LoadedImg.GetComponent<RawImage>().texture = texture;
 
             SetFileName.Instance.SetName();
+
+            yield return null;
         }
         
         /// <summary>

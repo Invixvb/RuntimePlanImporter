@@ -8,7 +8,6 @@ namespace TriLibCore.Samples
     public class PasteManager : MonoBehaviour
     {
 #if UNITY_WEBGL && !UNITY_EDITOR
-		[DllImport("__Internal")]
 		private static extern void PasteManagerSetup();
 #endif
 
