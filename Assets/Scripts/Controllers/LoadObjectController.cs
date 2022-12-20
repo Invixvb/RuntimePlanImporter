@@ -37,9 +37,7 @@ namespace Controllers
         /// Load the Game object
         /// Thi gets sent from Xamarin so we know which path we need to load from.
         /// </summary>
-        /// <param name="objPath"></param>
-        /// <returns></returns>
-        public IEnumerator LoadObjectFromXam(string objPath)
+        private IEnumerator LoadObjectFromXam(string objPath)
         {
             Config.ConfigGo.PublicObjectPath = objPath;
             

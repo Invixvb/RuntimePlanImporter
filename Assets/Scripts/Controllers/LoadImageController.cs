@@ -35,9 +35,7 @@ namespace Controllers
         /// <summary>
         /// Here we load in the image and set it to a texture from the newly created gameobject.
         /// </summary>
-        /// <param name="imagePath"></param>
-        /// <returns></returns>
-        public IEnumerator LoadImageFromXam()
+        private IEnumerator LoadImageFromXam()
         {
             var texture = loadedTexture;
 

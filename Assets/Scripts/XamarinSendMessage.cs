@@ -19,9 +19,10 @@ public static class XamarinSendMessage
         Debug.LogError("Error: Method isn't called from an Android device");
 #endif
     }
-    
+#if !UNITY_EDITOR && UNITY_IOS 
     // Calls methods to Xamarin iOS.
     [DllImport("__Internal")]
     public static extern void receiveFinish();
     // Other methods
+#endif
 }
